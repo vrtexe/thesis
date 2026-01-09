@@ -1,0 +1,60 @@
+\documentclass[a4paper]{article}
+
+\input{src/setup}
+
+
+\newcommand{\UniversityName}
+    {Универзитет „Св. Кирил и Методиј“ во Скопје}
+\newcommand{\FacultyName}
+    {Факултет за информатички науки и компјутерско инженерство}
+\newcommand{\ProjectType}
+    {Дипломска работа}
+
+\newcommand{\ProjectTitle}
+    {Платформа како сервис за менаџирање на апликации во облак}
+\newcommand{\ProjectMentor}
+    {Доц. д-р Име Презиме}
+\newcommand{\ProjectCandidate}
+    {Вангел Трајковски}
+\newcommand{\ProjectCandidateIndex}
+    {181261}
+\newcommand{\ProjectDate}
+    {Август 2025}
+
+
+\begin{document}
+
+    % Насловна страна
+    \input{src/00_titlepage}
+
+    \setlength{\parindent}{15pt}
+    \fontsize{12pt}{14pt}\selectfont
+    
+    % Апстракт
+    \input{src/01_abstract}
+
+    % Содржина
+    \newpage
+    \renewcommand{\contentsname}{\LARGE Содржина}
+    \tableofcontents
+
+    % Вовед
+    \input{src/02_introduction}
+
+    % Сродни истражувања
+    \input{src/03_technologies.tex}
+
+    % Методологија
+    \input{src/04_methodology}
+
+    % Резултати
+    \input{src/05_results}
+
+    % Заклучок
+    \input{src/06_conclusion}
+
+    % Библиографија
+    \input{src/bibliography}
+    
+
+\end{document}

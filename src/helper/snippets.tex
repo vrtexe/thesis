@@ -1,0 +1,82 @@
+
+
+Тука се пишува воведот на дипломската работа. Структурата на дипломската работа зависи од научната област која дипломската работа ја покрива, па затоа потребно  е структурата да се валидира од страна на менторот. Секоја дипломска работа содржи апстракт, содржина, вовед, заклучок и користена литература т.е. библиографија. За останатите детали потребна е консултација со менторот на дипломската работа.
+
+Процедурата за пријавување, одобрување и оцена на дипломската работа е достапна на \textcolor{blue}{\href{https://diplomski.finki.ukim.mk/}{следниот линк.}}
+
+ \textcolor{blue}{\href{https://www.overleaf.com/learn}{Документацијата на \texttt{Overleaf}}} може да се користи за помош околу форматирање на документот. За да работите со овој урнек, потребно е да направите клонирање на проектот преку \texttt{Menu} $\to$ \texttt{Actions} $\to$ \texttt{Copy Project}\footnote{Претходно мора да сте најавени со сопствена корисничка сметка.}.
+
+\subsection{Табели}
+
+Секоја табела мора да има објаснување над истата.
+
+\begin{table}[!ht]
+  \centering
+  \caption{Број на професори со различни звања на ФИНКИ.}
+  \begin{tabular}{rc|l}
+    \hline
+    Звање & Број & Кратенка \\ \hline
+    Професори & 39 & Проф. \\
+    Вонредни професори & 15 & Вон. проф. \\
+    Доценти & 6 & Доц. \\ \hline
+  \end{tabular}
+  \label{table-profs}
+\end{table}
+
+Табелите може да ги референцирате, како што е прикажано со Табела \ref{table-profs}. Табелите може лесно да се уредуваат со \texttt{Visual Editor} од \texttt{Overleaf}.
+
+\subsection{Листи}
+\subsubsection{Подредена листа}
+
+\begin{enumerate}
+  \item Еден.
+  \item Два.
+  \item Три.
+\end{enumerate}
+\subsubsection{Неподредена листа}
+\begin{itemize}
+  \item Еден.
+  \item Два.
+  \item Три.
+\end{itemize}
+
+\subsection{Математички формули}
+
+Математичките изрази како ${\mathcal{P}(x^*) = \left\{ i \in \mathcal{P}:f^i(x^*) = 0 \right\}}$ можат да се пишуваат во истиот ред со текстот доколку не се референцираат во понатамошниот дел од дипломската работа.
+
+Инаку математичките изрази за кои е потребен поголем простор или нивно понатамошно референцирање се дефинираат на следниот начин како Равенка \ref{optimality-crit} т.е.
+
+\begin{equation} \label{optimality-crit}
+  \overline{\lambda}_0 \nabla f^0 (x^*) + \sum_{i \in \mathcal{P}(x^*)\setminus \Omega} \overline{\lambda}_i \nabla f^i(x^*) + y = 0,
+\end{equation}
+или без референцирање како изразот
+% \begin{equation*}
+%     \lambda_0 \nabla f^0 (x^*) + \sum_{i \in \mathcal{P}(x^*)\setminus \Omega} \lambda_i \nabla f^i(x^*) \in \left\{ \bigcap_{i \in \Omega} D_i(x^*) \right\}^+.
+% \end{equation*}
+
+\subsection{Кодови}
+
+Приказ на кодовите може да се направи со околината \texttt{lstlisting} од пакетот \texttt{listings}.
+
+     \begin{lstlisting}[language=Python, caption={Транспонирање на матрица во Python.}, label={kod-py}, keywordstyle=\color{cyan}, stringstyle=\itshape\color{magenta}]
+matrix = [['a', 'b', 'c'], ['d', 'e', 'f']]
+transposed = list(zip(*matrix))
+print(transposed)  # [('a', 'd'), ('b', 'e'), ('c', 'f')]
+    \end{lstlisting}
+
+Кодовите може да ги референцирате преку нивната лабела, како што е направено со Код \ref{kod-py} и Код \ref{kod-cpp}. Својствата на кодовите може да ги менувате во самата околина, или преку \texttt{\textbackslash{}lstset} командата во датотеката \texttt{setup.tex}.
+
+   \begin{lstlisting}[language=java, caption={Безбеден пристап до \texttt{std::variant} користејќи \texttt{std::visit} за работа со различни податоци.}, label={kod-cpp}]
+    #include <iostream>
+    #include <variant>
+
+    int main() {
+        std::variant<int, std::string> v = "Hello";
+        std::visit([](auto&& val) { std::cout << val << "\n"; }, v);  // type-safe access
+        v = 42;
+        std::visit([](auto&& val) { std::cout << val << "\n"; }, v);
+        return 0;
+    }
+    \end{lstlisting}
+
+Кратки кодови може да стојат во самиот тек на текстот. Ако кодовите се подолги, може да се додадат истите во посебен дел наречен \textbf{Прилози}. Ако кодовите се поставени на јавно достапен репозиториум, може да се додаде линк или референца кон истиот.
